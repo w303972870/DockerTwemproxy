@@ -1,5 +1,5 @@
 ```
-docker pull registry.cn-hangzhou.aliyuncs.com/server_repertory/twemproxy:latest
+docker pull w303972870/twemproxy
 ```
 
 #### 先确认端口是否能通，不能就打开端口
