@@ -6,7 +6,8 @@ RUN mkdir -p /data/twemproxy/
 WORKDIR /data/twemproxy
 ADD redis_master.conf /root/
 
-RUN apk add --no-cache --virtual .build-deps git autoconf automake libtool gcc g++ make && \
+RUN apk add --no-cache --virtual .build-deps git autoconf automake libtool gcc g++ make tzdata && \
+  cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo "Asia/Shanghai" > /etc/timezone && \
     git clone https://github.com/twitter/twemproxy.git /data/twemproxy/ && autoreconf -fvi && \
     ./configure && make && make install &&  rm -rf /data/twemproxy/* &&  rm -rf /var/cache/apk/* && mkdir -p /data/twemproxy/logs && \ 
     apk del .build-deps gcc g++ openssl-dev zlib-dev perl-dev pcre-dev make git autoconf automake libtool
