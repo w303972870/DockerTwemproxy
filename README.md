@@ -11,7 +11,7 @@ firewall-cmd --zone=public --add-port=22121/tcp --permanent && firewall-cmd --re
 
 #### 启动命令示例
 ```
-docker run -dit  --net host -p 22121:22121 -v /root/twemproxy/redis_master.conf:/data/twemproxy/redis_master.conf  registry.cn-hangzhou.aliyuncs.com/server_repertory/twemproxy:latest
+docker run -dit  --net host -p 22121:22121 -v /root/twemproxy/redis_master.conf:/data/twemproxy/redis_master.conf  docker.io/w303972870/twemproxy
 ```
 
 
